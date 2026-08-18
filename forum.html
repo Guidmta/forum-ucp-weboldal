@@ -55,15 +55,15 @@
                             <!-- Felhasználónév mező -->
                             <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
                                 <label class="text-xs text-zinc-300 md:text-right pr-4">Felhasználónév vagy e-mail cím:</label>
-                                <input type="text" class="md:col-span-2 bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                                <input type="text" value="Shifty" class="md:col-span-2 bg-white text-black border border-zinc-400 rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 font-medium">
                             </div>
 
                             <!-- Jelszó mező -->
                             <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
                                 <label class="text-xs text-zinc-300 md:text-right pr-4">Jelszó:</label>
                                 <div class="md:col-span-2 relative">
-                                    <input type="password" class="w-full bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
-                                    <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#3a3d46] hover:bg-[#4a4d56] px-2 py-1 rounded">Mutat</button>
+                                    <input type="password" value="secret" class="w-full bg-white text-black border border-zinc-400 rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14 font-medium">
+                                    <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-200 bg-[#3a3d46] hover:bg-[#4a4d56] px-2 py-1 rounded">Mutat</button>
                                 </div>
                             </div>
 
@@ -79,7 +79,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2 pt-1">
                                 <div></div>
                                 <div class="md:col-span-2 flex items-center gap-2">
-                                    <input type="checkbox" id="maradjBej" class="rounded bg-[#1b1d23] border-[#3a3d46] text-emerald-600 focus:ring-0 w-4 h-4">
+                                    <input type="checkbox" id="maradjBej" checked class="rounded bg-white border-zinc-400 text-emerald-600 focus:ring-0 w-4 h-4">
                                     <label for="maradjBej" class="text-xs text-zinc-300 select-none cursor-pointer">Maradj bejelentkezve</label>
                                 </div>
                             </div>
@@ -95,39 +95,10 @@
                     </div>
                 </form>
 
-                <!-- Alsó rész: Teljesen fekete, középre rendezett blokk -->
-                <div class="pt-2 text-center space-y-4">
-                    <div class="bg-black border border-[#2b2e39] rounded p-6 max-w-xl mx-auto space-y-4 shadow-inner">
-                        <div class="text-xs text-zinc-400 flex flex-col items-center gap-2">
-                            <span>Nincs fiókod?</span>
-                            <a href="#" class="bg-[#3a3d46] hover:bg-[#4a4d56] text-[#61b0ff] font-semibold text-xs px-4 py-2 rounded transition-colors shadow inline-block">Regisztrálj most</a>
-                        </div>
-                        
-                        <div class="relative flex items-center justify-center py-1">
-                            <div class="flex-grow border-t border-[#2b2e39] max-w-xs"></div>
-                            <span class="flex-shrink mx-4 text-[10px] text-zinc-500 uppercase tracking-widest">vagy</span>
-                            <div class="flex-grow border-t border-[#2b2e39] max-w-xs"></div>
-                        </div>
-
-                        <!-- Passkey sáv -->
-                        <div class="bg-[#1b1d23] border border-[#2b2e39] rounded p-4 flex justify-between items-center">
-                            <span class="text-xs text-zinc-400">Jelentkezzen be:</span>
-                            <button type="button" class="bg-[#30363d] hover:bg-[#38424d] text-zinc-200 text-xs font-semibold px-4 py-1.5 rounded transition-colors inline-flex items-center gap-1.5 shadow">
-                                🔑 Passkey
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
     </main>
-
-    <!-- Lábléc -->
-    <footer class="bg-[#15171c] border-t border-[#23252b] py-4 text-center text-[11px] text-zinc-500">
-        Community platform by XenForo® © 2010-2026 XenForo Ltd. | Style and add-ons by ThemeHouse Created & Designed by: DoubleZ
-    </footer>
 
 </body>
 </html>
