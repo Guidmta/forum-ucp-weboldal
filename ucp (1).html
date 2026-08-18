@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEELMTA - User Control Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-white font-sans min-h-screen relative flex flex-col justify-between overflow-x-hidden bg-cover bg-center" style="background-image: url('hatter.png');">
+
+    <!-- Sötétítő réteg -->
+    <div class="absolute inset-0 z-0 bg-black/70 backdrop-blur-[2px]"></div>
+
+    <!-- Felső léc -->
+    <div class="absolute top-0 left-0 right-0 p-6 flex justify-between items-center z-20 max-w-7xl mx-auto w-full">
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="SEELMTA Logo" class="w-8 h-8 object-contain">
+            <span class="font-bold text-base tracking-wider text-white">SEELMTA</span>
+        </div>
+        <div></div>
+    </div>
+
+    <!-- Fő tartalom konténer -->
+    <div class="relative z-10 flex flex-col items-center justify-center flex-grow w-full px-4 py-24">
+
+        <!-- 1. BEJELENTKEZÉS NÉZET -->
+        <div id="loginView" class="w-full max-w-md p-8 bg-zinc-900/90 border border-zinc-800/80 rounded-3xl shadow-2xl backdrop-blur-md space-y-6">
+            <div class="text-center space-y-1">
+                <h2 class="text-xl font-bold text-white tracking-wide">Bejelentkezés</h2>
+                <p class="text-xs text-zinc-400">Add meg az adataid, melyekkel InGame regisztráltál.</p>
+            </div>
+
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Felhasználónév</label>
+                    <input type="text" id="usernameInput" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition-colors placeholder:text-zinc-600" placeholder="Felhasználónév...">
+                </div>
+
+                <div>
+                    <div class="mb-2">
+                        <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider">Jelszó</label>
+                    </div>
+                    <div class="relative">
+                        <input type="password" id="password" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 transition-colors pr-10" placeholder="••••••••">
+                        <button type="button" id="togglePassword" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 text-sm">
+                            👁
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Emlékezz rám pipa -->
+                <div class="flex items-center gap-2 pt-1">
+                    <input type="checkbox" id="rememberMe" class="rounded bg-zinc-950 border-zinc-800 text-red-500 focus:ring-0 w-4 h-4 cursor-pointer">
+                    <label for="rememberMe" class="text-xs text-zinc-400 select-none cursor-pointer">Emlékezz rám</label>
+                </div>
+
+                <button type="submit" class="w-full bg-zinc-200 hover:bg-white text-zinc-950 font-semibold py-3 rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2 text-sm mt-2">
+                    → Bejelentkezés
+                </button>
+            </form>
+        </div>
+
+        <!-- 2. VEZÉRLŐPULT / PROFIL NÉZET -->
+        <div id="dashboardView" class="hidden w-full max-w-6xl space-y-6">
+            
+            <!-- Felső név és Kijelentkezés -->
+            <div class="flex justify-between items-center bg-zinc-900/80 border border-zinc-800/80 p-6 rounded-2xl backdrop-blur-md">
+                <div>
+                    <h1 id="profileTitle" class="text-xl font-bold text-white">Profil</h1>
+                    <p class="text-xs text-zinc-400 mt-0.5">Account ID: <span class="text-zinc-200">0</span></p>
+                </div>
+                <button id="logoutBtn" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-4 py-2 rounded-xl text-xs font-medium transition-colors">
+                    Kijelentkezés
+                </button>
+            </div>
+
+            <!-- Fő rács elrendezés -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- Bal oszlop: Karakter kártya -->
+                <div class="space-y-6">
+                    <div class="bg-zinc-900/90 border border-zinc-800/80 rounded-2xl p-5 shadow-xl backdrop-blur-md space-y-4">
+                        <div class="w-full h-64 bg-zinc-950 rounded-xl overflow-hidden border border-zinc-800 relative flex items-center justify-center text-zinc-500 text-xs">
+                            <span class="text-zinc-600">Karakter</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-white font-bold text-sm">
+                                <span>👤</span> <span id="charNameDisplay">Nincs karakter</span>
+                            </div>
+                            <div class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider border-b border-zinc-800 pb-1">Karakter információk</div>
+                            
+                            <div class="space-y-1.5 text-xs">
+                                <div class="flex justify-between text-zinc-400"><span>Karakter ID</span><span class="text-zinc-200 font-mono">0</span></div>
+                                <div class="flex justify-between text-zinc-400"><span>Játszott idő</span><span class="text-zinc-200 font-semibold">0 perc (LVL 0)</span></div>
+                                <div class="flex justify-between text-zinc-400"><span>Készpénz</span><span class="text-emerald-400 font-bold">0 $</span></div>
+                                <div class="flex justify-between text-zinc-400"><span>Bankszámla</span><span class="text-red-400 font-bold">0 $</span></div>
+                                <div class="flex justify-between text-zinc-400"><span>SlotCoins</span><span class="text-amber-400 font-bold">0 SC</span></div>
+                                <div class="flex justify-between text-zinc-400"><span>Utoljára használva</span><span class="text-zinc-300">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jobb oszlop: Információs panel blokkok -->
+                <div class="lg:col-span-2 space-y-6">
+                    
+                    <!-- Felhasználói adatok blokk -->
+                    <div class="bg-zinc-900/90 border border-zinc-800/80 rounded-2xl p-6 shadow-xl backdrop-blur-md space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-zinc-300 uppercase tracking-wider">
+                            <span>👤</span> Felhasználói adatok
+                        </div>
+                        <div class="text-[11px] text-zinc-500 uppercase">Általános Információk</div>
+                        <div class="space-y-2 text-xs border-t border-zinc-800 pt-3">
+                            <div class="flex justify-between"><span class="text-zinc-400">Email</span><span id="emailDisplay" class="text-zinc-200">nincs megadva</span></div>
+                            <div class="flex justify-between"><span class="text-zinc-400">Utoljára online</span><span class="text-zinc-200">-</span></div>
+                            <div class="flex justify-between"><span class="text-zinc-400">Regisztráció</span><span class="text-zinc-200">-</span></div>
+                            <div class="flex justify-between"><span class="text-zinc-400">Prémium egyenleg</span><span class="text-cyan-400 font-semibold">0 PP</span></div>
+                            <div class="flex justify-between"><span class="text-zinc-400">Kétlépcsős azonosítás</span><span class="text-red-400 font-semibold">Kikapcsolva</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Serial blokk -->
+                    <div class="bg-zinc-900/90 border border-zinc-800/80 rounded-2xl p-5 shadow-xl backdrop-blur-md space-y-2">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-zinc-300 uppercase tracking-wider">
+                            <span>💻</span> SERIAL
+                        </div>
+                        <div class="bg-zinc-950/80 border border-zinc-800 p-2.5 rounded-xl font-mono text-xs text-zinc-300 text-center tracking-widest">
+                            0
+                        </div>
+                    </div>
+
+                    <!-- 1. KITILTÁSOK (0) -->
+                    <div class="bg-zinc-900/90 border border-zinc-800/80 rounded-2xl p-5 shadow-xl backdrop-blur-md space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-zinc-300 uppercase tracking-wider">
+                            <span>🚫</span> KITILTÁSOK (0)
+                        </div>
+                        <div class="py-6 text-center text-zinc-500 text-xs flex flex-col items-center justify-center gap-1">
+                            <span class="text-lg">Ø</span>
+                            Nincs találat
+                        </div>
+                    </div>
+
+                    <!-- 2. ADMINJAILEK (0) -->
+                    <div class="bg-zinc-900/90 border border-zinc-800/80 rounded-2xl p-5 shadow-xl backdrop-blur-md space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-zinc-300 uppercase tracking-wider">
+                            <span>⚖️</span> Adminjailek (0)
+                        </div>
+                        <div class="py-6 text-center text-zinc-500 text-xs flex flex-col items-center justify-center gap-1">
+                            <span class="text-lg">Ø</span>
+                            Nincs találat
+                        </div>
+                    </div>
+
+                    <!-- 3. KICKEK (0) -->
+                    <div class="bg-zinc-900/90 border border-zinc-800/80 rounded-2xl p-5 shadow-xl backdrop-blur-md space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-zinc-300 uppercase tracking-wider">
+                            <span>👤</span> KICKEK (0)
+                        </div>
+                        <div class="py-6 text-center text-zinc-500 text-xs flex flex-col items-center justify-center gap-1">
+                            <span class="text-lg">Ø</span>
+                            Nincs találat
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Lábléc -->
+    <footer class="relative z-10 py-6 text-center text-xs text-zinc-500 tracking-wider">
+        © 2026 SEELMTA
+    </footer>
+
+    <!-- Vezérlő logika -->
+    <script>
+        const loginView = document.getElementById('loginView');
+        const dashboardView = document.getElementById('dashboardView');
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('usernameInput');
+        const passwordInput = document.getElementById('password');
+        const rememberMe = document.getElementById('rememberMe');
+        const profileTitle = document.getElementById('profileTitle');
+        const charNameDisplay = document.getElementById('charNameDisplay');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const togglePassword = document.getElementById('togglePassword');
+
+        // Jelszó láthatóság váltás (szem ikon)
+        togglePassword.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePassword.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                togglePassword.textContent = '👁';
+            }
+        });
+
+        // Betöltődéskor: MINDIG a login panelt mutatjuk, de ha volt mentett user, beírjuk és bepipáljuk
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedUser = localStorage.getItem('seelmta_remembered_user');
+            if (savedUser) {
+                usernameInput.value = savedUser;
+                rememberMe.checked = true;
+            }
+            loginView.classList.remove('hidden');
+            dashboardView.classList.add('hidden');
+        });
+
+        // Bejelentkezés gomb kezelése
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = usernameInput.value.trim();
+
+            if (rememberMe.checked) {
+                localStorage.setItem('seelmta_remembered_user', username);
+            } else {
+                localStorage.removeItem('seelmta_remembered_user');
+            }
+
+            profileTitle.textContent = username + ' profilja';
+            charNameDisplay.textContent = username;
+            
+            loginView.classList.add('hidden');
+            dashboardView.classList.remove('hidden');
+        });
+
+        // Kijelentkezés gomb kezelése
+        logoutBtn.addEventListener('click', () => {
+            dashboardView.classList.add('hidden');
+            loginView.classList.remove('hidden');
+            passwordInput.value = '';
+        });
+    </script>
+
+</body>
+</html>
