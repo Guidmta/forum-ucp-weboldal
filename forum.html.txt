@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEELMTA - Fórum - Bejelentkezés</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#181a1f] text-[#c9d1d9] font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Felső navigációs sáv (XenForo stílus) -->
+    <header class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-3 flex flex-wrap justify-between items-center shadow-md">
+        <div class="flex items-center gap-8">
+            <!-- Logó és Név -->
+            <a href="index.html" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
+                <img src="logo.png" alt="SEELMTA Logo" class="w-6 h-6 object-contain">
+                <span>SEELMTA</span>
+            </a>
+            
+            <!-- Menüpontok -->
+            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold tracking-wider">
+                <a href="forum.html" class="text-white hover:text-emerald-400 transition-colors flex items-center gap-1">FÓRUM ▾</a>
+                <a href="ucp.html" class="text-zinc-400 hover:text-white transition-colors flex items-center gap-1">UCP ▾</a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors">PRÉMIUM SHOP</a>
+                <a href="https://discord.gg/tVzp7sYgv" target="_blank" class="text-zinc-400 hover:text-white transition-colors">DISCORD</a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors">JÁTÉKOSFIGYELŐ</a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors flex items-center gap-1">ÚJDONSÁGOK ▾</a>
+            </nav>
+        </div>
+
+        <div>
+            <a href="#" class="bg-[#21262d] hover:bg-[#30363d] text-zinc-200 text-xs font-semibold px-4 py-2 rounded border border-[#30363d] transition-colors flex items-center gap-1.5">
+                <span>👤</span> Regisztráció
+            </a>
+        </div>
+    </header>
+
+    <!-- Alsó navigációs almenü / morzsasáv helye -->
+    <div class="bg-[#15171c] border-b border-[#23252b] px-6 py-2 text-[11px] text-zinc-400 flex gap-4">
+        <a href="#" class="hover:text-white transition-colors">Legutóbbi tevékenység</a>
+        <a href="#" class="hover:text-white transition-colors">Regisztráció</a>
+    </div>
+
+    <!-- Fő tartalom - Bejelentkezési panel -->
+    <main class="flex-grow flex items-center justify-center px-4 py-12">
+        <div class="w-full max-w-xl bg-[#21232b] border border-[#2b2e39] rounded-lg shadow-2xl p-8 space-y-6">
+            
+            <!-- Hibaüzenet sáv -->
+            <div class="bg-[#2d1b1e] border-l-4 border-red-500 text-red-300 p-3 text-xs flex items-center gap-2 rounded">
+                <span class="text-red-500 font-bold text-sm">✕</span> Ehhez be kell jelentkezned.
+            </div>
+
+            <h1 class="text-xl font-bold text-white tracking-wide">Belépés</h1>
+
+            <!-- Bejelentkezési űrlap -->
+            <form class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
+                    <label class="text-xs text-zinc-400 md:text-right pr-2">Felhasználónév vagy e-mail cím:</label>
+                    <input type="text" required class="md:col-span-2 bg-[#181a1f] border border-[#30363d] rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
+                    <label class="text-xs text-zinc-400 md:text-right pr-2">Jelszó:</label>
+                    <div class="md:col-span-2 relative">
+                        <input type="password" required class="w-full bg-[#181a1f] border border-[#30363d] rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500 pr-14">
+                        <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-400 hover:text-white bg-[#2b2d35] px-2 py-1 rounded">Mutat</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
+                    <div></div>
+                    <div class="md:col-span-2">
+                        <a href="#" class="text-[11px] text-emerald-400 hover:underline">Elfelejtette a jelszavát?</a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2 pt-1">
+                    <div></div>
+                    <div class="md:col-span-2 flex items-center gap-2">
+                        <input type="checkbox" id="maradjBej" class="rounded bg-[#181a1f] border-[#30363d] text-emerald-600 focus:ring-0">
+                        <label for="maradjBej" class="text-xs text-zinc-300 select-none cursor-pointer">Maradj bejelentkezve</label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2 pt-2">
+                    <div></div>
+                    <div class="md:col-span-2">
+                        <button type="submit" class="bg-[#2ea043] hover:bg-[#238636] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center justify-center gap-1.5 w-full md:w-auto">
+                            🔒 Belépés
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="border-t border-[#2b2e39] pt-4 text-center space-y-3">
+                <div class="text-xs text-zinc-400">
+                    Nincs fiókod? <a href="#" class="text-emerald-400 font-semibold hover:underline">Regisztrálj most</a>
+                </div>
+                <div class="text-[11px] text-zinc-500 uppercase tracking-widest">vagy</div>
+                <div>
+                    <button type="button" class="bg-[#30363d] hover:bg-[#38424d] text-zinc-200 text-xs font-semibold px-4 py-2 rounded transition-colors inline-flex items-center gap-1.5">
+                        🔑 Passkey
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Lábléc -->
+    <footer class="bg-[#15171c] border-t border-[#23252b] py-4 text-center text-[11px] text-zinc-500">
+        Community platform by XenForo® © 2010-2026 XenForo Ltd. | Style and add-ons by ThemeHouse Created & Designed by: DoubleZ
+    </footer>
+
+</body>
+</html>
