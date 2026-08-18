@@ -48,7 +48,7 @@
                 <h1 class="text-xl font-bold text-white tracking-wide">Belépés</h1>
 
                 <form class="space-y-4">
-                    <!-- Sötétszürke keretes doboz (benne a gombbal alul) -->
+                    <!-- Sötétszürke keretes doboz -->
                     <div class="bg-[#2b2d35] border border-[#3a3d46] rounded overflow-hidden">
                         
                         <div class="p-6 space-y-4">
@@ -85,8 +85,8 @@
                             </div>
                         </div>
 
-                        <!-- Alsó sáv a dobozon belül a Belépés gombbal -->
-                        <div class="bg-[#21232b] border-t border-[#3a3d46] px-6 py-4">
+                        <!-- Alsó sáv a dobozon belül a KÖZÉPRE igazított Belépés gombbal -->
+                        <div class="bg-[#21232b] border-t border-[#3a3d46] px-6 py-4 flex justify-center">
                             <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center gap-1.5">
                                 🔒 Belépés
                             </button>
@@ -95,25 +95,27 @@
                     </div>
                 </form>
 
-                <!-- Alsó rész (Nincs fiókod / Regisztrálj most) -->
+                <!-- Alsó rész: Teljesen fekete, középre rendezett blokk -->
                 <div class="pt-2 text-center space-y-4">
-                    <div class="text-xs text-zinc-400 flex items-center justify-center gap-2">
-                        <span>Nincs fiókod?</span>
-                        <a href="#" class="bg-[#3a3d46] hover:bg-[#4a4d56] text-white text-xs font-semibold px-3 py-1.5 rounded transition-colors shadow">Regisztrálj most</a>
-                    </div>
-                    
-                    <div class="relative flex items-center justify-center py-1">
-                        <div class="flex-grow border-t border-[#2b2e39] max-w-xs"></div>
-                        <span class="flex-shrink mx-4 text-[10px] text-zinc-500 uppercase tracking-widest">vagy</span>
-                        <div class="flex-grow border-t border-[#2b2e39] max-w-xs"></div>
-                    </div>
+                    <div class="bg-black border border-[#2b2e39] rounded p-6 max-w-xl mx-auto space-y-4 shadow-inner">
+                        <div class="text-xs text-zinc-400 flex flex-col items-center gap-2">
+                            <span>Nincs fiókod?</span>
+                            <a href="#" class="bg-[#3a3d46] hover:bg-[#4a4d56] text-[#61b0ff] font-semibold text-xs px-4 py-2 rounded transition-colors shadow inline-block">Regisztrálj most</a>
+                        </div>
+                        
+                        <div class="relative flex items-center justify-center py-1">
+                            <div class="flex-grow border-t border-[#2b2e39] max-w-xs"></div>
+                            <span class="flex-shrink mx-4 text-[10px] text-zinc-500 uppercase tracking-widest">vagy</span>
+                            <div class="flex-grow border-t border-[#2b2e39] max-w-xs"></div>
+                        </div>
 
-                    <!-- Passkey sáv -->
-                    <div class="bg-[#1b1d23] border border-[#2b2e39] rounded p-4 flex justify-between items-center max-w-2xl mx-auto">
-                        <span class="text-xs text-zinc-400">Jelentkezzen be:</span>
-                        <button type="button" class="bg-[#30363d] hover:bg-[#38424d] text-zinc-200 text-xs font-semibold px-4 py-1.5 rounded transition-colors inline-flex items-center gap-1.5 shadow">
-                            🔑 Passkey
-                        </button>
+                        <!-- Passkey sáv -->
+                        <div class="bg-[#1b1d23] border border-[#2b2e39] rounded p-4 flex justify-between items-center">
+                            <span class="text-xs text-zinc-400">Jelentkezzen be:</span>
+                            <button type="button" class="bg-[#30363d] hover:bg-[#38424d] text-zinc-200 text-xs font-semibold px-4 py-1.5 rounded transition-colors inline-flex items-center gap-1.5 shadow">
+                                🔑 Passkey
+                            </button>
+                        </div>
                     </div>
                 </div>
 
