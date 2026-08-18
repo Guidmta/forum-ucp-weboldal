@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEELMTA - Fórum - Bejelentkezés</title>
+    <title>SEELMTA - Fórum</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#181a1f] text-[#c9d1d9] font-sans min-h-screen flex flex-col justify-between">
@@ -32,66 +32,8 @@
         </div>
     </header>
 
-    <!-- Fő tartalom -->
+    <!-- Fő tartalom (Most már teljesen üres, csak a háttér látszik) -->
     <main class="flex-grow flex items-center justify-center px-4 py-12">
-        <div class="w-full max-w-4xl space-y-4">
-            
-            <!-- Fő doboz -->
-            <div class="bg-[#21232b] border border-[#2b2e39] rounded p-8 shadow-2xl space-y-6">
-                
-                <h1 class="text-xl font-bold text-white tracking-wide">Belépés</h1>
-
-                <form class="space-y-4">
-                    <!-- Sötétszürke keretes doboz -->
-                    <div class="bg-[#2b2d35] border border-[#3a3d46] rounded overflow-hidden">
-                        
-                        <div class="p-6 space-y-4">
-                            <!-- Felhasználónév mező -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
-                                <label class="text-xs text-zinc-300 md:text-right pr-4">Felhasználónév vagy e-mail cím:</label>
-                                <input type="text" value="Shifty" class="md:col-span-2 bg-white text-black border border-zinc-400 rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 font-medium">
-                            </div>
-
-                            <!-- Jelszó mező -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
-                                <label class="text-xs text-zinc-300 md:text-right pr-4">Jelszó:</label>
-                                <div class="md:col-span-2 relative">
-                                    <input type="password" value="secret" class="w-full bg-white text-black border border-zinc-400 rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14 font-medium">
-                                    <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-200 bg-[#3a3d46] hover:bg-[#4a4d56] px-2 py-1 rounded">Mutat</button>
-                                </div>
-                            </div>
-
-                            <!-- Elfelejtette a jelszavát -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2">
-                                <div></div>
-                                <div class="md:col-span-2">
-                                    <a href="#" class="text-[11px] text-[#42b883] hover:underline">Elfelejtette a jelszavát?</a>
-                                </div>
-                            </div>
-
-                            <!-- Maradj bejelentkezve -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-2 pt-1">
-                                <div></div>
-                                <div class="md:col-span-2 flex items-center gap-2">
-                                    <input type="checkbox" id="maradjBej" checked class="rounded bg-white border-zinc-400 text-emerald-600 focus:ring-0 w-4 h-4">
-                                    <label for="maradjBej" class="text-xs text-zinc-300 select-none cursor-pointer">Maradj bejelentkezve</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Alsó sáv a dobozon belül a KÖZÉPRE igazított Belépés gombbal -->
-                        <div class="bg-[#21232b] border-t border-[#3a3d46] px-6 py-4 flex justify-center">
-                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center gap-1.5">
-                                🔒 Belépés
-                            </button>
-                        </div>
-
-                    </div>
-                </form>
-
-            </div>
-
-        </div>
     </main>
 
 </body>
