@@ -11,8 +11,8 @@
     <!-- Felső navigációs sáv -->
     <header class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-3 flex flex-wrap justify-between items-center shadow-md">
         <div class="flex items-center gap-8">
-            <!-- Logó és Név -->
-            <a href="index.html" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
+            <!-- Logó és Név (Érintetlenül hagyva) -->
+            <a href="forum.html" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
                 <img src="logo.png" alt="SEELMTA Logo" class="w-6 h-6 object-contain">
                 <span>SEELMTA</span>
             </a>
@@ -32,20 +32,20 @@
         <!-- BEJELENTKEZÉS NÉZET -->
         <div id="login-view" class="w-full max-w-4xl flex flex-col gap-4">
             <div class="w-full">
-                <form>
+                <form onsubmit="handleLogin(event)">
                     <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded overflow-hidden shadow-2xl">
                         <div class="p-8 space-y-5">
                             <!-- Felhasználónév mező -->
                             <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
                                 <label class="text-xs text-zinc-300 md:text-right pr-2">Felhasználónév vagy e-mail cím:</label>
-                                <input type="text" class="md:col-span-3 bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                                <input type="text" required class="md:col-span-3 bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
                             </div>
 
                             <!-- Jelszó mező -->
                             <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
                                 <label class="text-xs text-zinc-300 md:text-right pr-2">Jelszó:</label>
                                 <div class="md:col-span-3 relative">
-                                    <input type="password" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
+                                    <input type="password" required class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
                                     <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#2d2232] hover:bg-[#3d2f44] px-2 py-1 rounded">Mutat</button>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                             <button type="button" onclick="switchView('register')" class="text-xs text-zinc-400 hover:text-white transition-colors underline cursor-pointer">
                                 Nincs fiókod? Regisztrálj most
                             </button>
-                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center gap-1.5">
+                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center gap-1.5 cursor-pointer">
                                 🔒 Belépés
                             </button>
                         </div>
@@ -86,7 +86,7 @@
         <!-- REGISZTRÁCIÓ NÉZET (Alapból rejtett) -->
         <div id="register-view" class="w-full max-w-4xl flex flex-col gap-4 hidden">
             <div class="w-full">
-                <form>
+                <form onsubmit="handleRegister(event)">
                     <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded overflow-hidden shadow-2xl">
                         
                         <!-- Regisztráció Fejléc a dobozon belül -->
@@ -99,7 +99,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
                                 <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Felhasználónév:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
                                 <div class="md:col-span-3 space-y-1">
-                                    <input type="text" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                                    <input type="text" required class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
                                     <p class="text-[11px] text-zinc-400">Ez a név fog megjelentni az üzeneteidnél. Ésszerű keretek között bármilyen neved lehet.</p>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
                                 <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">E-mail:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
                                 <div class="md:col-span-3">
-                                    <input type="email" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                                    <input type="email" required class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
                                 </div>
                             </div>
 
@@ -117,7 +117,7 @@
                                 <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Jelszó:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
                                 <div class="md:col-span-3 space-y-1">
                                     <div class="relative">
-                                        <input type="password" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
+                                        <input type="password" required class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
                                         <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#2d2232] hover:bg-[#3d2f44] px-2 py-1 rounded">Mutat</button>
                                     </div>
                                     <p class="text-[11px] text-zinc-400">Jelszó bevitele szükséges.</p>
@@ -128,7 +128,7 @@
                             <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 pt-1">
                                 <div></div>
                                 <div class="md:col-span-3 flex items-center gap-2">
-                                    <input type="checkbox" id="feltetelek" class="rounded bg-[#13151b] border-[#31232d] text-emerald-600 focus:ring-0 w-4 h-4">
+                                    <input type="checkbox" id="feltetelek" required class="rounded bg-[#13151b] border-[#31232d] text-emerald-600 focus:ring-0 w-4 h-4">
                                     <label for="feltetelek" class="text-xs text-zinc-300 select-none cursor-pointer">
                                         A regisztrációjával elfogadja a <a href="#" class="text-[#42b883] hover:underline">felhasználási feltételeket</a> és <a href="#" class="text-[#42b883] hover:underline">adatvédelmi irányelveket</a>.
                                     </label>
@@ -141,7 +141,7 @@
                             <button type="button" onclick="switchView('login')" class="text-xs text-zinc-400 hover:text-white transition-colors underline cursor-pointer">
                                 Már van fiókod? Belépés
                             </button>
-                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow">
+                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow cursor-pointer">
                                 Regisztráció
                             </button>
                         </div>
@@ -153,7 +153,7 @@
 
     </main>
 
-    <!-- JavaScript a nézetek váltásához -->
+    <!-- JavaScript a nézetek váltásához és a fórumra irányításhoz -->
     <script>
         function switchView(view) {
             const loginView = document.getElementById('login-view');
@@ -166,6 +166,18 @@
                 registerView.classList.add('hidden');
                 loginView.classList.remove('hidden');
             }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            // Itt sikeres belépés után átirányít a fórum főoldalára (vagy magára a fórum nézetre)
+            window.location.href = 'forum.html';
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            // Itt sikeres regisztráció után szintén átirányít a fórumra
+            window.location.href = 'forum.html';
         }
     </script>
 
