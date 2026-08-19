@@ -29,65 +29,172 @@
     <!-- Fő tartalom -->
     <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 gap-4">
         
-        <!-- Fő bejelentkezési doboz -->
-        <div class="w-full max-w-4xl">
-            <form>
-                <div class="bg-[#2b2d35] border border-[#3a3d46] rounded overflow-hidden shadow-2xl">
-                    
-                    <div class="p-8 space-y-5">
-                        <!-- Felhasználónév mező -->
-                        <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
-                            <label class="text-xs text-zinc-300 md:text-right pr-2">Felhasználónév vagy e-mail cím:</label>
-                            <input type="text" class="md:col-span-3 bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
-                        </div>
+        <!-- BEJELENTKEZÉS NÉZET -->
+        <div id="login-view" class="w-full max-w-4xl flex flex-col gap-4">
+            <div class="w-full">
+                <form>
+                    <div class="bg-[#2b2d35] border border-[#3a3d46] rounded overflow-hidden shadow-2xl">
+                        <div class="p-8 space-y-5">
+                            <!-- Felhasználónév mező -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
+                                <label class="text-xs text-zinc-300 md:text-right pr-2">Felhasználónév vagy e-mail cím:</label>
+                                <input type="text" class="md:col-span-3 bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                            </div>
 
-                        <!-- Jelszó mező -->
-                        <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
-                            <label class="text-xs text-zinc-300 md:text-right pr-2">Jelszó:</label>
-                            <div class="md:col-span-3 relative">
-                                <input type="password" class="w-full bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
-                                <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#3a3d46] hover:bg-[#4a4d56] px-2 py-1 rounded">Mutat</button>
+                            <!-- Jelszó mező -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
+                                <label class="text-xs text-zinc-300 md:text-right pr-2">Jelszó:</label>
+                                <div class="md:col-span-3 relative">
+                                    <input type="password" class="w-full bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
+                                    <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#3a3d46] hover:bg-[#4a4d56] px-2 py-1 rounded">Mutat</button>
+                                </div>
+                            </div>
+
+                            <!-- Elfelejtette a jelszavát -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
+                                <div></div>
+                                <div class="md:col-span-3">
+                                    <a href="#" class="text-[11px] text-[#42b883] hover:underline">Elfelejtette a jelszavát?</a>
+                                </div>
+                            </div>
+
+                            <!-- Maradj bejelentkezve -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 pt-1">
+                                <div></div>
+                                <div class="md:col-span-3 flex items-center gap-2">
+                                    <input type="checkbox" id="maradjBej" class="rounded bg-[#1b1d23] border-[#3a3d46] text-emerald-600 focus:ring-0 w-4 h-4">
+                                    <label for="maradjBej" class="text-xs text-zinc-300 select-none cursor-pointer">Maradj bejelentkezve</label>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Elfelejtette a jelszavát -->
-                        <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
-                            <div></div>
-                            <div class="md:col-span-3">
-                                <a href="#" class="text-[11px] text-[#42b883] hover:underline">Elfelejtette a jelszavát?</a>
-                            </div>
-                        </div>
-
-                        <!-- Maradj bejelentkezve -->
-                        <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 pt-1">
-                            <div></div>
-                            <div class="md:col-span-3 flex items-center gap-2">
-                                <input type="checkbox" id="maradjBej" class="rounded bg-[#1b1d23] border-[#3a3d46] text-emerald-600 focus:ring-0 w-4 h-4">
-                                <label for="maradjBej" class="text-xs text-zinc-300 select-none cursor-pointer">Maradj bejelentkezve</label>
-                            </div>
+                        <!-- Alsó sáv a gombbal -->
+                        <div class="bg-[#21232b] border-t border-[#3a3d46] px-8 py-4 flex justify-center">
+                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center gap-1.5">
+                                🔒 Belépés
+                            </button>
                         </div>
                     </div>
+                </form>
+            </div>
 
-                    <!-- Alsó sáv a gombbal -->
-                    <div class="bg-[#21232b] border-t border-[#3a3d46] px-8 py-4 flex justify-center">
-                        <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center gap-1.5">
-                            🔒 Belépés
-                        </button>
-                    </div>
-
-                </div>
-            </form>
+            <!-- Alsó sáv a Regisztráció váltáshoz -->
+            <div class="w-full bg-[#2b2d35] border border-[#3a3d46] rounded px-6 py-4 flex flex-wrap items-center justify-between text-xs shadow-md">
+                <span class="text-zinc-300">Nincs fiókod?</span>
+                <button onclick="switchView('register')" class="bg-[#3a3d46] hover:bg-[#4a4d56] text-white font-semibold px-4 py-2 rounded border border-[#4a4d56] transition-colors cursor-pointer">
+                    Regisztrálj most
+                </button>
+            </div>
         </div>
 
-        <!-- Alsó regisztrációs sáv -->
-        <div class="w-full max-w-4xl bg-[#2b2d35] border border-[#3a3d46] rounded px-6 py-4 flex flex-wrap items-center justify-between text-xs shadow-md">
-            <span class="text-zinc-300">Nincs fiókod?</span>
-            <a href="#" class="bg-[#3a3d46] hover:bg-[#4a4d56] text-white font-semibold px-4 py-2 rounded border border-[#4a4d56] transition-colors">
-                Regisztrálj most
-            </a>
+
+        <!-- REGISZTRÁCIÓ NÉZET (Alapból rejtett) -->
+        <div id="register-view" class="w-full max-w-4xl flex flex-col gap-4 hidden">
+            <div class="w-full">
+                <form>
+                    <div class="bg-[#2b2d35] border border-[#3a3d46] rounded overflow-hidden shadow-2xl">
+                        
+                        <!-- Regisztráció Fejléc a dobozon belül -->
+                        <div class="bg-[#21232b] border-b border-[#3a3d46] px-8 py-4">
+                            <h2 class="text-white text-sm font-semibold">Regisztráció</h2>
+                        </div>
+
+                        <div class="p-8 space-y-5">
+                            <!-- Felhasználónév -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
+                                <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Felhasználónév:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
+                                <div class="md:col-span-3 space-y-1">
+                                    <input type="text" class="w-full bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                                    <p class="text-[11px] text-zinc-400">Ez a név fog megjelentni az üzeneteidnél. Ésszerű keretek között bármilyen neved lehet.</p>
+                                </div>
+                            </div>
+
+                            <!-- E-mail -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
+                                <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">E-mail:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
+                                <div class="md:col-span-3">
+                                    <input type="email" class="w-full bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                                </div>
+                            </div>
+
+                            <!-- Jelszó -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
+                                <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Jelszó:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
+                                <div class="md:col-span-3 space-y-1">
+                                    <div class="relative">
+                                        <input type="password" class="w-full bg-[#1b1d23] text-white border border-[#3a3d46] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
+                                        <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#3a3d46] hover:bg-[#4a4d56] px-2 py-1 rounded">Mutat</button>
+                                    </div>
+                                    <p class="text-[11px] text-zinc-400">Jelszó bevitele szükséges.</p>
+                                </div>
+                            </div>
+
+                            <!-- Megerősítés (hCaptcha) -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
+                                <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Megerősítés:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
+                                <div class="md:col-span-3">
+                                    <div class="bg-[#1b1d23] border border-[#3a3d46] rounded p-3 w-fit flex items-center justify-between gap-6">
+                                        <div class="flex items-center gap-3">
+                                            <input type="checkbox" class="w-5 h-5 rounded bg-[#2b2d35] border-[#3a3d46] text-emerald-600 focus:ring-0">
+                                            <span class="text-xs text-zinc-200">I am human</span>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-[10px] text-blue-400 font-bold">hCaptcha</div>
+                                            <div class="text-[9px] text-zinc-500">Privacy - Terms</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Feltételek elfogadása -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 pt-1">
+                                <div></div>
+                                <div class="md:col-span-3 flex items-center gap-2">
+                                    <input type="checkbox" id="feltetelek" class="rounded bg-[#1b1d23] border-[#3a3d46] text-emerald-600 focus:ring-0 w-4 h-4">
+                                    <label for="feltetelek" class="text-xs text-zinc-300 select-none cursor-pointer">
+                                        A regisztrációjával elfogadja a <a href="#" class="text-[#42b883] hover:underline">felhasználási feltételeket</a> és <a href="#" class="text-[#42b883] hover:underline">adatvédelmi irányelveket</a>.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alsó sáv a Regisztráció gombbal -->
+                        <div class="bg-[#21232b] border-t border-[#3a3d46] px-8 py-4 flex justify-center">
+                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow">
+                                Regisztráció
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <!-- Vissza a bejelentkezéshez sáv -->
+            <div class="w-full bg-[#2b2d35] border border-[#3a3d46] rounded px-6 py-4 flex flex-wrap items-center justify-between text-xs shadow-md">
+                <span class="text-zinc-300">Már van fiókod?</span>
+                <button onclick="switchView('login')" class="bg-[#3a3d46] hover:bg-[#4a4d56] text-white font-semibold px-4 py-2 rounded border border-[#4a4d56] transition-colors cursor-pointer">
+                    Belépés
+                </button>
+            </div>
         </div>
 
     </main>
+
+    <!-- JavaScript a nézetek váltásához -->
+    <script>
+        function switchView(view) {
+            const loginView = document.getElementById('login-view');
+            const registerView = document.getElementById('register-view');
+
+            if (view === 'register') {
+                loginView.classList.add('hidden');
+                registerView.classList.remove('hidden');
+            } else {
+                registerView.classList.add('hidden');
+                loginView.classList.remove('hidden');
+            }
+        }
+    </script>
 
 </body>
 </html>
