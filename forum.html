@@ -6,12 +6,11 @@
     <title>SEELMTA - Fórum</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-[#2a1215] via-[#181a1f] to-[#111827] text-[#c9d1d9] font-sans min-h-screen flex flex-col justify-between">
+<body class="bg-[#2c2f33] text-[#c9d1d9] font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Felső navigációs sáv (DawnMTA stílus) -->
-    <header id="main-header" class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-4 shadow-md">
+    <!-- Felső navigációs sáv -->
+    <header id="main-header" class="bg-[#23272a] border-b border-[#1e2124] px-6 py-4 shadow-md">
         <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center">
-            <!-- Bal oldal: Logó és Név -->
             <div class="flex items-center gap-3">
                 <a href="#" onclick="switchView('login'); return false;" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
                     <img src="logo.png" alt="SEELMTA Logo" class="w-8 h-8 object-contain">
@@ -19,14 +18,12 @@
                 </a>
             </div>
 
-            <!-- Közép: Kereső mező -->
             <div class="relative w-full md:w-80 my-2 md:my-0">
-                <input type="text" placeholder="Keresés..." class="w-full bg-[#13151b] text-zinc-300 border border-[#31232d] rounded px-4 py-1.5 text-xs focus:outline-none focus:border-emerald-500">
+                <input type="text" placeholder="Keresés..." class="w-full bg-[#1e2124] text-zinc-300 border border-[#2c2f33] rounded px-4 py-1.5 text-xs focus:outline-none focus:border-emerald-500">
             </div>
         </div>
 
-        <!-- Alsó rész: Menüsor és jobb oldali elemek -->
-        <div class="max-w-7xl mx-auto mt-3 pt-3 border-t border-[#2b2d35] flex flex-wrap justify-between items-center text-xs font-semibold tracking-wider">
+        <div class="max-w-7xl mx-auto mt-3 pt-3 border-t border-[#1e2124] flex flex-wrap justify-between items-center text-xs font-semibold tracking-wider">
             <nav class="flex items-center gap-6">
                 <a href="#" onclick="switchView('forum'); return false;" class="text-emerald-400 hover:text-emerald-300 transition-colors">FÓRUMOK</a>
                 <a href="#" class="text-zinc-400 hover:text-white transition-colors">UCP</a>
@@ -45,123 +42,150 @@
     </header>
 
     <!-- Fő tartalom -->
-    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 gap-4">
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-6">
         
         <!-- BEJELENTKEZÉS NÉZET -->
-        <div id="login-view" class="w-full max-w-4xl flex flex-col gap-4">
-            <div class="w-full">
-                <form onsubmit="handleLogin(event)">
-                    <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded overflow-hidden shadow-2xl">
-                        <div class="p-8 space-y-5">
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
-                                <label class="text-xs text-zinc-300 md:text-right pr-2">Felhasználónév vagy e-mail cím:</label>
-                                <input type="text" class="md:col-span-3 bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
-                                <label class="text-xs text-zinc-300 md:text-right pr-2">Jelszó:</label>
-                                <div class="md:col-span-3 relative">
-                                    <input type="password" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
-                                    <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#2d2232] hover:bg-[#3d2f44] px-2 py-1 rounded">Mutat</button>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4">
-                                <div></div>
-                                <div class="md:col-span-3">
-                                    <a href="#" class="text-[11px] text-[#42b883] hover:underline">Elfelejtette a jelszavát?</a>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 pt-1">
-                                <div></div>
-                                <div class="md:col-span-3 flex items-center gap-2">
-                                    <input type="checkbox" id="maradjBej" class="rounded bg-[#13151b] border-[#31232d] text-emerald-600 focus:ring-0 w-4 h-4">
-                                    <label for="maradjBej" class="text-xs text-zinc-300 select-none cursor-pointer">Maradj bejelentkezve</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-[#1a141d] border-t border-[#3b2530] px-8 py-4 flex justify-between items-center">
-                            <button type="button" onclick="switchView('register')" class="text-xs text-zinc-400 hover:text-white transition-colors underline cursor-pointer">
-                                Nincs fiókod? Regisztrálj most
-                            </button>
-                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow flex items-center gap-1.5 cursor-pointer">
-                                🔒 Belépés
-                            </button>
-                        </div>
+        <div id="login-view" class="w-full max-w-2xl mx-auto flex flex-col gap-4 mt-12">
+            <form onsubmit="handleLogin(event)">
+                <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-2xl p-8 space-y-5">
+                    <h2 class="text-white font-bold text-sm">Bejelentkezés</h2>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Felhasználónév vagy e-mail cím" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                        <input type="password" placeholder="Jelszó" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
                     </div>
-                </form>
-            </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <button type="button" onclick="switchView('register')" class="text-xs text-zinc-400 hover:text-white underline">Nincs fiókod? Regisztrálj</button>
+                        <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors">Belépés</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
         <!-- REGISZTRÁCIÓ NÉZET -->
-        <div id="register-view" class="w-full max-w-4xl flex flex-col gap-4 hidden">
-            <div class="w-full">
-                <form onsubmit="handleRegister(event)">
-                    <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded overflow-hidden shadow-2xl">
-                        
-                        <div class="bg-[#1a141d] border-b border-[#3b2530] px-8 py-4">
-                            <h2 class="text-white text-sm font-semibold">Regisztráció</h2>
-                        </div>
-
-                        <div class="p-8 space-y-5">
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
-                                <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Felhasználónév:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
-                                <div class="md:col-span-3 space-y-1">
-                                    <input type="text" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
-                                    <p class="text-[11px] text-zinc-400">Ez a név fog megjelentni az üzeneteidnél. Ésszerű keretek között bármilyen neved lehet.</p>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
-                                <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">E-mail:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
-                                <div class="md:col-span-3">
-                                    <input type="email" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
-                                <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Jelszó:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
-                                <div class="md:col-span-3 space-y-1">
-                                    <div class="relative">
-                                        <input type="password" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 pr-14">
-                                        <button type="button" class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-zinc-300 bg-[#2d2232] hover:bg-[#3d2f44] px-2 py-1 rounded">Mutat</button>
-                                    </div>
-                                    <p class="text-[11px] text-zinc-400">Jelszó bevitele szükséges.</p>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 pt-1">
-                                <div></div>
-                                <div class="md:col-span-3 flex items-center gap-2">
-                                    <input type="checkbox" id="feltetelek" class="rounded bg-[#13151b] border-[#31232d] text-emerald-600 focus:ring-0 w-4 h-4">
-                                    <label for="feltetelek" class="text-xs text-zinc-300 select-none cursor-pointer">
-                                        A regisztrációjával elfogadja a <a href="#" class="text-[#42b883] hover:underline">felhasználási feltételeket</a> és <a href="#" class="text-[#42b883] hover:underline">adatvédelmi irányelveket</a>.
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-[#1a141d] border-t border-[#3b2530] px-8 py-4 flex justify-between items-center">
-                            <button type="button" onclick="switchView('login')" class="text-xs text-zinc-400 hover:text-white transition-colors underline cursor-pointer">
-                                Már van fiókod? Belépés
-                            </button>
-                            <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs transition-colors shadow cursor-pointer">
-                                Regisztráció
-                            </button>
-                        </div>
-
+        <div id="register-view" class="w-full max-w-2xl mx-auto flex flex-col gap-4 mt-12 hidden">
+            <form onsubmit="handleRegister(event)">
+                <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-2xl p-8 space-y-5">
+                    <h2 class="text-white font-bold text-sm">Regisztráció</h2>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Felhasználónév" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs">
+                        <input type="email" placeholder="E-mail" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs">
+                        <input type="password" placeholder="Jelszó" class="w-full bg-[#13151b] text-white border border-[#31232d] rounded px-3 py-2 text-xs">
                     </div>
-                </form>
-            </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <button type="button" onclick="switchView('login')" class="text-xs text-zinc-400 hover:text-white underline">Van már fiókod? Belépés</button>
+                        <button type="submit" class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-6 py-2 rounded text-xs">Regisztráció</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <!-- FÓRUM NÉZET -->
-        <div id="forum-view" class="w-full max-w-7xl hidden">
-            <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-xl p-8 text-center text-zinc-400 text-xs">
-                Itt még nincs semmi. Innen építjük tovább a fórumot!
+        <!-- FÓRUM NÉZET (Itt vannak a kért dobozok és oldalsávok) -->
+        <div id="forum-view" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-6">
+            
+            <!-- Bal / Fő rész (Fórum kategóriák) -->
+            <div class="lg:col-span-3 space-y-6">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-white text-lg font-bold">Fórum lista</h1>
+                    <button class="bg-[#2bb673] hover:bg-[#249c63] text-white text-xs font-semibold px-4 py-2 rounded shadow">Új téma létrehozása...</button>
+                </div>
+
+                <!-- Általános Kategória -->
+                <div class="bg-[#23272a] border border-[#1e2124] rounded overflow-hidden shadow">
+                    <div class="bg-[#1e2124] px-4 py-2.5 font-bold text-white text-sm flex justify-between items-center">
+                        <span>Általános</span>
+                        <span>▲</span>
+                    </div>
+                    <div class="divide-y divide-[#1e2124] text-xs">
+                        <div class="p-3.5 hover:bg-[#2a2e33] flex items-center justify-between">
+                            <div>
+                                <a href="#" class="text-white font-bold hover:underline">Fórum Szabályzat</a>
+                                <p class="text-zinc-400 text-[11px]">Mielőtt a fórumot használni kezded, ezt a szabályzatot kötelességed átolvasni...</p>
+                            </div>
+                        </div>
+                        <div class="p-3.5 hover:bg-[#2a2e33] flex items-center justify-between">
+                            <a href="#" class="text-white font-bold hover:underline">DawnMTA Szerver Szabályzat</a>
+                        </div>
+                        <div class="p-3.5 hover:bg-[#2a2e33] flex items-center justify-between">
+                            <div>
+                                <a href="#" class="text-emerald-400 font-bold hover:underline">Fórum moderátorra való panasztétel</a>
+                                <p class="text-zinc-400 text-[11px]">Alfórumok</p>
+                            </div>
+                            <div class="text-right text-zinc-400 text-[11px]">
+                                <span>Téma: 2</span> | <span>Üzenet: 4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Los Santos Kategória -->
+                <div class="bg-[#23272a] border border-[#1e2124] rounded overflow-hidden shadow">
+                    <div class="bg-[#1e2124] px-4 py-2.5 font-bold text-white text-sm flex justify-between items-center">
+                        <span>DawnMTA - Los Santos</span>
+                        <span>▲</span>
+                    </div>
+                    <div class="divide-y divide-[#1e2124] text-xs">
+                        <div class="p-3.5 hover:bg-[#2a2e33] flex items-center justify-between">
+                            <div>
+                                <a href="#" class="text-emerald-400 font-bold hover:underline">Szerver fejlesztések</a>
+                                <p class="text-zinc-400 text-[11px]">DawnMTA changelogok.</p>
+                            </div>
+                            <div class="text-right text-zinc-400 text-[11px]">
+                                <span>Téma: 16</span> | <span>Üzenet: 16</span>
+                            </div>
+                        </div>
+                        <div class="p-3.5 hover:bg-[#2a2e33] flex items-center justify-between">
+                            <div>
+                                <a href="#" class="text-emerald-400 font-bold hover:underline">Ötletek [LS]</a>
+                                <p class="text-zinc-400 text-[11px]">Szerverrel kapcsolatos ötletek.</p>
+                            </div>
+                            <div class="text-right text-zinc-400 text-[11px]">
+                                <span>Téma: 262</span> | <span>Üzenet: 1.3K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Jobb oldalsáv (Dobozok) -->
+            <div class="space-y-6">
+                <!-- Online felhasználók -->
+                <div class="bg-[#23272a] border border-[#1e2124] rounded p-4 text-xs space-y-3 shadow">
+                    <h3 class="font-bold text-white border-b border-[#1e2124] pb-2">👥 Online felhasználók</h3>
+                    <p class="text-zinc-400 leading-relaxed">Elo2009, Devi_, Justin ™, Bertold_, Vexlor_, Tomy, tokaska, 🟨 Delta_, mazartazsak, Kefirré, Baka_, Gerardo45, Pat4ik0ss, totesz, tibitibortib, Savale</p>
+                    <p class="text-zinc-500 border-t border-[#1e2124] pt-2">Összesen: 32 (16 regisztrált, 16 vendég)</p>
+                </div>
+
+                <!-- Online statisztikák -->
+                <div class="bg-[#23272a] border border-[#1e2124] rounded p-4 text-xs space-y-2 shadow">
+                    <h3 class="font-bold text-white border-b border-[#1e2124] pb-2">📊 Online statisztikák</h3>
+                    <div class="flex justify-between text-zinc-400"><span>Online tagok:</span> <span class="text-white font-bold">16</span></div>
+                    <div class="flex justify-between text-zinc-400"><span>Online vendégek:</span> <span class="text-white font-bold">16</span></div>
+                    <div class="flex justify-between text-zinc-400"><span>Összes látogató:</span> <span class="text-white font-bold">32</span></div>
+                </div>
+
+                <!-- Névnapok -->
+                <div class="bg-[#23272a] border border-[#1e2124] rounded p-4 text-xs space-y-2 shadow">
+                    <h3 class="font-bold text-white border-b border-[#1e2124] pb-2">📅 Névnapok</h3>
+                    <p class="text-white font-semibold">2026. augusztus 19. szerda</p>
+                    <p class="text-zinc-400">Ma <span class="text-emerald-400">Huba</span>, holnap Alkotmány Ünnepe, István ünnepli a névnapját.</p>
+                </div>
+
+                <!-- Új hozzászólások -->
+                <div class="bg-[#23272a] border border-[#1e2124] rounded p-4 text-xs space-y-3 shadow">
+                    <h3 class="font-bold text-white border-b border-[#1e2124] pb-2">💬 Új hozzászólások</h3>
+                    <div class="space-y-2 text-zinc-400">
+                        <div>
+                            <a href="#" class="text-sky-400 hover:underline font-semibold block">Jármű frakcióra írása</a>
+                            <span>Utolsó: Delta_ - 6 perccel ezelőtt</span>
+                        </div>
+                        <div>
+                            <a href="#" class="text-sky-400 hover:underline font-semibold block">Magánbirtok átalakítás</a>
+                            <span>Utolsó: Delta_ - 15 perccel ezelőtt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </main>
@@ -169,20 +193,16 @@
     <!-- JavaScript -->
     <script>
         function switchView(view) {
-            const loginView = document.getElementById('login-view');
-            const registerView = document.getElementById('register-view');
-            const forumView = document.getElementById('forum-view');
-
-            loginView.classList.add('hidden');
-            registerView.classList.add('hidden');
-            forumView.classList.add('hidden');
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('register-view').classList.add('hidden');
+            document.getElementById('forum-view').classList.add('hidden');
 
             if (view === 'register') {
-                registerView.classList.remove('hidden');
+                document.getElementById('register-view').classList.remove('hidden');
             } else if (view === 'login') {
-                loginView.classList.remove('hidden');
+                document.getElementById('login-view').classList.remove('hidden');
             } else if (view === 'forum') {
-                forumView.classList.remove('hidden');
+                document.getElementById('forum-view').classList.remove('hidden');
             }
         }
 
