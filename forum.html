@@ -12,15 +12,15 @@
     <header class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-3 flex flex-wrap justify-between items-center shadow-md">
         <div class="flex items-center gap-8">
             <!-- Logó és Név -->
-            <a href="forum.html" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
+            <a href="#" onclick="showLogin(); return false;" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
                 <img src="logo.png" alt="SEELMTA Logo" class="w-6 h-6 object-contain">
                 <span>SEELMTA</span>
             </a>
             
             <!-- Menüpontok -->
             <nav class="hidden md:flex items-center gap-6 text-xs font-semibold tracking-wider">
-                <a href="forum.html" class="text-white hover:text-emerald-400 transition-colors">FÓRUM</a>
-                <a href="ucp.html" class="text-zinc-400 hover:text-white transition-colors">UCP</a>
+                <a href="#" onclick="showForum(); return false;" class="text-white hover:text-emerald-400 transition-colors">FÓRUM</a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors">UCP</a>
                 <a href="https://discord.gg/tVzp7sYgv" target="_blank" class="text-zinc-400 hover:text-white transition-colors">DISCORD</a>
             </nav>
         </div>
@@ -151,31 +151,98 @@
             </div>
         </div>
 
+
+        <!-- FÓRUM NÉZET (Amikor belépsz, ez jelenik meg) -->
+        <div id="forum-view" class="w-full max-w-7xl hidden grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Bal / Középső oldal: Fórum Kategóriák -->
+            <div class="lg:col-span-3 space-y-6">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-white text-lg font-bold">Fórum lista</h1>
+                    <button class="bg-[#2bb673] hover:bg-[#249c63] text-white font-semibold px-4 py-1.5 rounded text-xs transition-colors shadow">
+                        Új téma létrehozása...
+                    </button>
+                </div>
+
+                <!-- Kategória doboz: Általános -->
+                <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-xl overflow-hidden">
+                    <div class="bg-[#1a141d] px-4 py-2.5 border-b border-[#3b2530]">
+                        <span class="text-xs font-bold text-white uppercase tracking-wider">Általános</span>
+                    </div>
+                    <div class="divide-y divide-[#3b2530]/40 text-xs">
+                        <div class="p-4 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="text-lg text-emerald-400">💬</span>
+                                <div>
+                                    <a href="#" class="font-semibold text-white hover:text-emerald-400">Fórum Szabályzat</a>
+                                    <p class="text-[11px] text-zinc-400">Mielőtt a fórumot használni kezded, ezt a szabályzatot kötelező elolvasni és betartani!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kategória doboz: SEELMTA - Los Santos -->
+                <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-xl overflow-hidden">
+                    <div class="bg-[#1a141d] px-4 py-2.5 border-b border-[#3b2530]">
+                        <span class="text-xs font-bold text-white uppercase tracking-wider">SEELMTA - Los Santos</span>
+                    </div>
+                    <div class="divide-y divide-[#3b2530]/40 text-xs">
+                        <div class="p-4 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="text-lg text-emerald-400">💬</span>
+                                <div>
+                                    <a href="#" class="font-semibold text-white hover:text-emerald-400">Szerver fejlesztések</a>
+                                    <p class="text-[11px] text-zinc-400">SEELMTA changelogok.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-8 text-right text-zinc-400 text-[11px]">
+                                <div><span class="text-white font-medium">16</span><br>Téma</div>
+                                <div><span class="text-white font-medium">16</span><br>Üzenet</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jobb oldali sáv -->
+            <div class="space-y-6">
+                <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-xl p-4 text-xs space-y-3">
+                    <h3 class="font-bold text-white border-b border-[#3b2530] pb-2">Online felhasználók</h3>
+                    <p class="text-zinc-300">Elo2009, DeakLevii, K.Y.LE</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- JavaScript a nézetek váltásához és a Belépés gombhoz -->
+    <!-- JavaScript a nézetek váltásához -->
     <script>
         function switchView(view) {
             const loginView = document.getElementById('login-view');
             const registerView = document.getElementById('register-view');
+            const forumView = document.getElementById('forum-view');
+
+            loginView.classList.add('hidden');
+            registerView.classList.add('hidden');
+            forumView.classList.add('hidden');
 
             if (view === 'register') {
-                loginView.classList.add('hidden');
                 registerView.classList.remove('hidden');
-            } else {
-                registerView.classList.add('hidden');
+            } else if (view === 'login') {
                 loginView.classList.remove('hidden');
+            } else if (view === 'forum') {
+                forumView.classList.remove('hidden');
             }
         }
 
         function handleLogin(event) {
             event.preventDefault();
-            window.location.href = 'forum.html';
+            switchView('forum');
         }
 
         function handleRegister(event) {
             event.preventDefault();
-            window.location.href = 'forum.html';
+            switchView('forum');
         }
     </script>
 
