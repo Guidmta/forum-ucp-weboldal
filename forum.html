@@ -8,8 +8,8 @@
 </head>
 <body class="bg-gradient-to-br from-[#2a1215] via-[#181a1f] to-[#111827] text-[#c9d1d9] font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Felső navigációs sáv -->
-    <header class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-3 flex flex-wrap justify-between items-center shadow-md">
+    <!-- Felső navigációs sáv (Alapból rejtve van, csak belépés után jelenik meg) -->
+    <header id="main-header" class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-3 flex flex-wrap justify-between items-center shadow-md hidden">
         <div class="flex items-center gap-8">
             <!-- Logó és Név -->
             <a href="#" onclick="switchView('login'); return false;" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
@@ -83,19 +83,17 @@
         </div>
 
 
-        <!-- REGISZTRÁCIÓ NÉZET (Alapból rejtett) -->
+        <!-- REGISZTRÁCIÓ NÉZET -->
         <div id="register-view" class="w-full max-w-4xl flex flex-col gap-4 hidden">
             <div class="w-full">
                 <form onsubmit="handleRegister(event)">
                     <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded overflow-hidden shadow-2xl">
                         
-                        <!-- Regisztráció Fejléc a dobozon belül -->
                         <div class="bg-[#1a141d] border-b border-[#3b2530] px-8 py-4">
                             <h2 class="text-white text-sm font-semibold">Regisztráció</h2>
                         </div>
 
                         <div class="p-8 space-y-5">
-                            <!-- Felhasználónév -->
                             <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
                                 <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Felhasználónév:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
                                 <div class="md:col-span-3 space-y-1">
@@ -104,7 +102,6 @@
                                 </div>
                             </div>
 
-                            <!-- E-mail -->
                             <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
                                 <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">E-mail:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
                                 <div class="md:col-span-3">
@@ -112,7 +109,6 @@
                                 </div>
                             </div>
 
-                            <!-- Jelszó -->
                             <div class="grid grid-cols-1 md:grid-cols-4 items-start gap-4">
                                 <label class="text-xs text-zinc-300 md:text-right pr-2 pt-2">Jelszó:<br><span class="text-[10px] text-zinc-500">Szükséges</span></label>
                                 <div class="md:col-span-3 space-y-1">
@@ -124,7 +120,6 @@
                                 </div>
                             </div>
 
-                            <!-- Feltételek elfogadása -->
                             <div class="grid grid-cols-1 md:grid-cols-4 items-center gap-4 pt-1">
                                 <div></div>
                                 <div class="md:col-span-3 flex items-center gap-2">
@@ -136,7 +131,6 @@
                             </div>
                         </div>
 
-                        <!-- Alsó sáv a Regisztráció gombbal és visszalépéssel -->
                         <div class="bg-[#1a141d] border-t border-[#3b2530] px-8 py-4 flex justify-between items-center">
                             <button type="button" onclick="switchView('login')" class="text-xs text-zinc-400 hover:text-white transition-colors underline cursor-pointer">
                                 Már van fiókod? Belépés
@@ -152,7 +146,7 @@
         </div>
 
 
-        <!-- FÓRUM NÉZET (Most teljesen üres, erre építkezünk) -->
+        <!-- FÓRUM NÉZET -->
         <div id="forum-view" class="w-full max-w-7xl hidden">
             <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-xl p-8 text-center text-zinc-400 text-xs">
                 Itt még nincs semmi. Innen építjük tovább a fórumot!
@@ -161,16 +155,18 @@
 
     </main>
 
-    <!-- JavaScript a nézetek váltásához -->
+    <!-- JavaScript -->
     <script>
         function switchView(view) {
             const loginView = document.getElementById('login-view');
             const registerView = document.getElementById('register-view');
             const forumView = document.getElementById('forum-view');
+            const mainHeader = document.getElementById('main-header');
 
             loginView.classList.add('hidden');
             registerView.classList.add('hidden');
             forumView.classList.add('hidden');
+            mainHeader.classList.add('hidden');
 
             if (view === 'register') {
                 registerView.classList.remove('hidden');
@@ -178,6 +174,7 @@
                 loginView.classList.remove('hidden');
             } else if (view === 'forum') {
                 forumView.classList.remove('hidden');
+                mainHeader.classList.remove('hidden');
             }
         }
 
