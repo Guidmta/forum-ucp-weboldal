@@ -8,19 +8,39 @@
 </head>
 <body class="bg-gradient-to-br from-[#2a1215] via-[#181a1f] to-[#111827] text-[#c9d1d9] font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Felső navigációs sáv (Teljesen rejtve marad mindenhol) -->
-    <header id="main-header" class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-3 flex flex-wrap justify-between items-center shadow-md hidden">
-        <div class="flex items-center gap-8">
-            <a href="#" onclick="switchView('login'); return false;" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
-                <img src="logo.png" alt="SEELMTA Logo" class="w-6 h-6 object-contain">
-                <span>SEELMTA</span>
-            </a>
-            
-            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold tracking-wider">
-                <a href="#" onclick="switchView('forum'); return false;" class="text-white hover:text-emerald-400 transition-colors">FÓRUM</a>
+    <!-- Felső navigációs sáv (DawnMTA stílus) -->
+    <header id="main-header" class="bg-[#1b1d23] border-b border-[#2b2d35] px-6 py-4 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center">
+            <!-- Bal oldal: Logó és Név -->
+            <div class="flex items-center gap-3">
+                <a href="#" onclick="switchView('login'); return false;" class="flex items-center gap-2.5 font-bold text-white text-base tracking-wide">
+                    <img src="logo.png" alt="SEELMTA Logo" class="w-8 h-8 object-contain">
+                    <span class="text-xl tracking-tight">SEELMTA</span>
+                </a>
+            </div>
+
+            <!-- Közép: Kereső mező -->
+            <div class="relative w-full md:w-80 my-2 md:my-0">
+                <input type="text" placeholder="Keresés..." class="w-full bg-[#13151b] text-zinc-300 border border-[#31232d] rounded px-4 py-1.5 text-xs focus:outline-none focus:border-emerald-500">
+            </div>
+        </div>
+
+        <!-- Alsó rész: Menüsor és jobb oldali elemek -->
+        <div class="max-w-7xl mx-auto mt-3 pt-3 border-t border-[#2b2d35] flex flex-wrap justify-between items-center text-xs font-semibold tracking-wider">
+            <nav class="flex items-center gap-6">
+                <a href="#" onclick="switchView('forum'); return false;" class="text-emerald-400 hover:text-emerald-300 transition-colors">FÓRUMOK</a>
                 <a href="#" class="text-zinc-400 hover:text-white transition-colors">UCP</a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors">Prémium Shop</a>
                 <a href="https://discord.gg/tVzp7sYgv" target="_blank" class="text-zinc-400 hover:text-white transition-colors">DISCORD</a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors">Újdonságok</a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors">Felhasználók</a>
             </nav>
+
+            <div class="flex items-center gap-4 mt-2 md:mt-0 text-sm">
+                <span class="text-white">Elo2009</span>
+                <span class="cursor-pointer text-zinc-400 hover:text-white">✉</span>
+                <span class="cursor-pointer text-zinc-400 hover:text-white">🔔</span>
+            </div>
         </div>
     </header>
 
@@ -74,7 +94,6 @@
                 </form>
             </div>
         </div>
-
 
         <!-- REGISZTRÁCIÓ NÉZET -->
         <div id="register-view" class="w-full max-w-4xl flex flex-col gap-4 hidden">
@@ -138,8 +157,7 @@
             </div>
         </div>
 
-
-        <!-- FÓRUM NÉZET (Fejléc nélkül) -->
+        <!-- FÓRUM NÉZET -->
         <div id="forum-view" class="w-full max-w-7xl hidden">
             <div class="bg-gradient-to-br from-[#27151a] via-[#1c1c24] to-[#161a29] border border-[#3b2530] rounded shadow-xl p-8 text-center text-zinc-400 text-xs">
                 Itt még nincs semmi. Innen építjük tovább a fórumot!
